@@ -19,7 +19,8 @@ for(i in ids)
   
   dat1_svs<- dat1 %>% filter(REF=="N")
   dat2_svs<- dat2 %>% filter(REF=="N")
-  
+
+  #使用anti_join和inner_join进行数据合并，分别得到只存在于第一个文件中的SVs和在两个文件中都存在的SVs
   filt_anti<-anti_join(dat1_svs,dat2_svs, by=c("#CHROM","POS","ALT"))
   filt<-inner_join(dat1_svs,dat2_svs, by=c("#CHROM","POS","ALT"))
   
